@@ -69,3 +69,7 @@ After creating the Supabase Auth user, add that user's UUID to `public.admins`:
 ```sql
 insert into public.admins(user_id) values ('YOUR-AUTH-USER-UUID');
 ```
+
+
+## Device lock and leaderboard management
+Run the latest `supabase/migration.sql` in the existing Supabase project. Each browser profile receives a random device ID and the database allows only one submission for that ID. Removing a submission from the admin leaderboard also unlocks that device. The lock is intended for normal party use and can be bypassed by clearing browser site data or using another browser/device. Admins can rename entries, remove individual entries, or clear the entire leaderboard.
